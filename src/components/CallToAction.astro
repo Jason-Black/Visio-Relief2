@@ -1,0 +1,204 @@
+---
+---
+
+<section id="contact" class="cta">
+  <div class="container">
+    <div class="cta-content">
+      <h2>Your New Clarity Begins Here</h2>
+      <p>Take the first step toward mental clarity with a free 30-minute consultation. We'll discuss your current challenges and explore how the Visio Relief system might help.</p>
+      
+      <div class="booking-container">
+        <div class="booking-info">
+          <h3>Book Your Free Clarity Call</h3>
+          <ul class="call-benefits">
+            <li>Personalized assessment of your current mental clarity challenges</li>
+            <li>Introduction to key Visio Relief techniques you can start using immediately</li>
+            <li>Clear understanding of how the full system works and if it's right for you</li>
+            <li>No pressure, no obligation - just clarity about your next steps</li>
+          </ul>
+        </div>
+        
+        <div class="booking-form">
+          <form action="#" method="POST" id="bookingForm">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+            
+            <div class="form-group">
+              <label for="message">What are you hoping to gain from the Visio Relief system?</label>
+              <textarea id="message" name="message" rows="3"></textarea>
+            </div>
+            
+            <button type="submit" class="button large">Book My Free Call</button>
+          </form>
+          <p class="form-note">Or schedule directly through our <a href="#" class="calendly-link">online calendar</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Simple form validation
+  const form = document.getElementById('bookingForm');
+  
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // In a real implementation, this would send the form data to a server
+      // For now, we'll just show a success message
+      
+      form.innerHTML = `
+        <div class="success-message">
+          <h3>Thank You!</h3>
+          <p>Your clarity call has been requested. We'll be in touch within 24 hours to confirm your appointment.</p>
+          <p>In the meantime, check your email for a welcome message with some initial resources to start your journey.</p>
+        </div>
+      `;
+    });
+  }
+  
+  // Calendly popup (simulated)
+  const calendlyLink = document.querySelector('.calendly-link');
+  
+  if (calendlyLink) {
+    calendlyLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('In a real implementation, this would open a Calendly scheduling popup.');
+    });
+  }
+</script>
+
+<style>
+  .cta {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+    color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    z-index: 0;
+  }
+  
+  .cta-content {
+    position: relative;
+    z-index: 1;
+    padding: var(--space-lg) 0;
+  }
+  
+  .cta h2, .cta p {
+    text-align: center;
+  }
+  
+  .cta h2 {
+    margin-bottom: var(--space-sm);
+  }
+  
+  .cta > .container > p {
+    max-width: 700px;
+    margin: 0 auto var(--space-xl);
+    font-size: 1.1rem;
+  }
+  
+  .booking-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-info {
+    background-color: var(--color-accent-light);
+    color: var(--color-text);
+    padding: var(--space-xl);
+  }
+  
+  .booking-info h3 {
+    margin-bottom: var(--space-lg);
+  }
+  
+  .call-benefits {
+    padding-left: var(--space-lg);
+  }
+  
+  .call-benefits li {
+    margin-bottom: var(--space-md);
+  }
+  
+  .booking-form {
+    padding: var(--space-xl);
+  }
+  
+  .form-group {
+    margin-bottom: var(--space-md);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-weight: 500;
+    color: var(--color-text);
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: var(--radius-md);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+  }
+  
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(138, 107, 242, 0.2);
+  }
+  
+  .form-note {
+    margin-top: var(--space-md);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+  }
+  
+  .success-message {
+    text-align: center;
+    padding: var(--space-xl) 0;
+    color: var(--color-text);
+  }
+  
+  .success-message h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+  
+  @media (max-width: 992px) {
+    .booking-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

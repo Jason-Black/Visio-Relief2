@@ -1,0 +1,178 @@
+---
+---
+
+<section id="journey" class="narrative-journey">
+  <div class="container">
+    <h2 class="section-title text-center">The Journey to Mental Clarity</h2>
+    
+    <div class="journey-steps">
+      <div class="journey-step" id="step1">
+        <div class="step-icon">
+          <div class="fog-icon"></div>
+        </div>
+        <div class="step-content">
+          <h3>The Fog</h3>
+          <p>Many of us experience life through a mental fog – anxiety, stress, and uncertainty cloud our decisions and drain our energy. You may feel stuck, overwhelmed, or disconnected from your true purpose.</p>
+          <p>When clarity is missing, even small decisions become exhausting. The mental fog affects your relationships, career, and most importantly, your relationship with yourself.</p>
+        </div>
+      </div>
+      
+      <div class="journey-connector"></div>
+      
+      <div class="journey-step" id="step2">
+        <div class="step-icon">
+          <div class="shift-icon"></div>
+        </div>
+        <div class="step-content">
+          <h3>The Shift</h3>
+          <p>Transformation begins with awareness. The first step toward clarity is recognizing that your thoughts create your experience, and that mental wellness is a skill that can be developed.</p>
+          <p>Through the Visio Relief system, you'll experience a profound shift in perspective. You'll learn to separate yourself from anxious thoughts and reconnect with your inner wisdom.</p>
+        </div>
+      </div>
+      
+      <div class="journey-connector"></div>
+      
+      <div class="journey-step" id="step3">
+        <div class="step-icon">
+          <div class="vision-icon"></div>
+        </div>
+        <div class="step-content">
+          <h3>The Vision</h3>
+          <p>With a clear mind comes clear vision. You'll develop the ability to see opportunities you once missed, make decisions with confidence, and experience deeper connections in all areas of your life.</p>
+          <p>Mental clarity isn't just about reducing stress – it's about creating space for joy, purpose, and authentic self-expression. It's about living a life that feels aligned with your truest self.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Simple intersection observer for fade-in effect
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+    
+    const steps = document.querySelectorAll('.journey-step');
+    steps.forEach(step => observer.observe(step));
+  });
+</script>
+
+<style>
+  .narrative-journey {
+    background-color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .section-title {
+    margin-bottom: var(--space-xxl);
+  }
+  
+  .journey-steps {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .journey-step {
+    display: flex;
+    margin-bottom: var(--space-xxl);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+  }
+  
+  .journey-step.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .step-icon {
+    flex: 0 0 100px;
+    height: 100px;
+    margin-right: var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .fog-icon, .shift-icon, .vision-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .fog-icon {
+    background-color: var(--color-secondary-light);
+    box-shadow: 0 0 20px rgba(120, 158, 188, 0.3);
+  }
+  
+  .shift-icon {
+    background: linear-gradient(135deg, var(--color-secondary-light), var(--color-primary-light));
+    box-shadow: 0 0 20px rgba(138, 107, 242, 0.3);
+  }
+  
+  .vision-icon {
+    background-color: var(--color-primary);
+    box-shadow: 0 0 20px rgba(138, 107, 242, 0.4);
+  }
+  
+  .fog-icon::before, .shift-icon::before, .vision-icon::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .fog-icon::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242'%3E%3C/path%3E%3Cpath d='M16 17H7'%3E%3C/path%3E%3Cpath d='M17 21H9'%3E%3C/path%3E%3C/svg%3E");
+  }
+  
+  .shift-icon::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z'%3E%3C/path%3E%3C/svg%3E");
+  }
+  
+  .vision-icon::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z'%3E%3C/path%3E%3Ccircle cx='12' cy='12' r='3'%3E%3C/circle%3E%3C/svg%3E");
+  }
+  
+  .step-content {
+    flex: 1;
+  }
+  
+  .journey-connector {
+    width: 2px;
+    height: 60px;
+    background-color: var(--color-primary-light);
+    margin-left: 50px;
+    margin-bottom: var(--space-lg);
+  }
+  
+  @media (max-width: 768px) {
+    .journey-step {
+      flex-direction: column;
+    }
+    
+    .step-icon {
+      margin-right: 0;
+      margin-bottom: var(--space-md);
+    }
+    
+    .journey-connector {
+      margin-left: 40px;
+    }
+  }
+</style>

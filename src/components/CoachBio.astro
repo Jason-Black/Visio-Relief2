@@ -1,0 +1,203 @@
+---
+---
+
+<section id="about" class="coach-bio">
+  <div class="container">
+    <div class="bio-content">
+      <div class="bio-image-wrapper">
+        <div class="bio-image">
+          <img src="https://images.pexels.com/photos/2380794/pexels-photo-2380794.jpeg" alt="Mental Wellness Coach" loading="lazy" />
+        </div>
+        <div class="credentials-badge">
+          <span>10+ Years Experience</span>
+          <span>Certified Trauma Specialist</span>
+          <span>Featured in Psychology Today</span>
+        </div>
+      </div>
+      
+      <div class="bio-text">
+        <div class="bio-header">
+          <h2>Meet Your Guide to Emotional Freedom</h2>
+          <h3>Michael Reynolds</h3>
+          <p class="credentials">Clinical Mental Health Counselor • Trauma Specialist • Creator of the Visio Relief Method</p>
+        </div>
+        
+        <div class="bio-story">
+          <div class="story-section">
+            <h4>My Journey</h4>
+            <p>"After experiencing my own journey through trauma and anxiety, I discovered that traditional approaches often missed the crucial connection between vision, emotion, and healing. This realization led me to develop the Visio Relief Method – a revolutionary approach that has now helped hundreds find freedom from emotional pain."</p>
+          </div>
+          
+          <div class="story-section">
+            <h4>Why This Works</h4>
+            <p>The Visio Relief Method combines cutting-edge neuroscience with proven therapeutic techniques to create rapid, lasting transformation. Unlike traditional therapy that can take years, our approach targets the root cause of emotional pain, allowing for deep healing in weeks, not years.</p>
+          </div>
+          
+          <div class="achievements">
+            <div class="achievement">
+              <span class="number">500+</span>
+              <span class="label">Clients Helped</span>
+            </div>
+            <div class="achievement">
+              <span class="number">97%</span>
+              <span class="label">Success Rate</span>
+            </div>
+            <div class="achievement">
+              <span class="number">4.9/5</span>
+              <span class="label">Client Rating</span>
+            </div>
+          </div>
+        </div>
+        
+        <a href="#contact" class="button large">Book Your Free Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .coach-bio {
+    background-color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .bio-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+  
+  .bio-image-wrapper {
+    position: relative;
+  }
+  
+  .bio-image {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bio-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    transition: transform var(--transition-medium);
+  }
+  
+  .bio-image:hover img {
+    transform: scale(1.02);
+  }
+  
+  .credentials-badge {
+    position: absolute;
+    bottom: -2rem;
+    left: 2rem;
+    right: 2rem;
+    background: var(--color-white);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+  
+  .credentials-badge span {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+  
+  .credentials-badge span::before {
+    content: "✓";
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+  
+  .bio-header {
+    margin-bottom: var(--space-xl);
+  }
+  
+  .bio-header h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-xs);
+  }
+  
+  .credentials {
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  .story-section {
+    margin-bottom: var(--space-lg);
+  }
+  
+  .story-section h4 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+    font-size: 1.25rem;
+  }
+  
+  .achievements {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin: var(--space-xl) 0;
+    padding: var(--space-lg) 0;
+    border-top: 1px solid var(--color-accent);
+    border-bottom: 1px solid var(--color-accent);
+  }
+  
+  .achievement {
+    text-align: center;
+  }
+  
+  .achievement .number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-xs);
+  }
+  
+  .achievement .label {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 992px) {
+    .bio-content {
+      grid-template-columns: 1fr;
+      gap: var(--space-xxl);
+    }
+    
+    .bio-image-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .credentials-badge {
+      position: relative;
+      bottom: auto;
+      left: auto;
+      right: auto;
+      margin-top: -2rem;
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .achievements {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+  }
+</style>

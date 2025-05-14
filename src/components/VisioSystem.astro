@@ -1,0 +1,129 @@
+---
+---
+
+<section id="system" class="visio-system">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>What is Visio Relief?</h2>
+      <p class="section-intro">A gentle, effective 4-step system to transform mental fog into clarity and purpose</p>
+    </div>
+    
+    <div class="system-steps">
+      <div class="system-step">
+        <div class="step-number">1</div>
+        <div class="step-details">
+          <h3>Clarity</h3>
+          <p>Identify thought patterns that create mental fog and learn techniques to observe your mind without becoming entangled in its stories. This awareness creates the space needed for transformation.</p>
+        </div>
+      </div>
+      
+      <div class="system-step">
+        <div class="step-number">2</div>
+        <div class="step-details">
+          <h3>Reconnect</h3>
+          <p>Rediscover your connection to your authentic self through guided practices that bypass the critical mind and access your intuitive wisdom. Rebuild trust in your inner guidance system.</p>
+        </div>
+      </div>
+      
+      <div class="system-step">
+        <div class="step-number">3</div>
+        <div class="step-details">
+          <h3>Focus</h3>
+          <p>Learn to direct your attention with purpose and intention. Develop practical tools to maintain mental clarity in challenging situations and make decisions aligned with your values.</p>
+        </div>
+      </div>
+      
+      <div class="system-step">
+        <div class="step-number">4</div>
+        <div class="step-details">
+          <h3>Reset</h3>
+          <p>Integrate these new mental patterns into your daily life through customized rituals and practices. Create sustainable change that grows stronger with time and transforms how you experience life.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="system-summary text-center">
+      <p>This gentle yet powerful approach creates lasting change by working with your mind's natural tendencies rather than fighting against them.</p>
+      <a href="#contact" class="button">Experience the Visio Relief System</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .visio-system {
+    background-color: var(--color-background);
+    position: relative;
+  }
+  
+  .visio-system::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 20% 30%, var(--color-primary-light) 0%, transparent 30%);
+    opacity: 0.05;
+    z-index: 0;
+  }
+  
+  .section-intro {
+    max-width: 700px;
+    margin: 0 auto var(--space-xxl);
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+  }
+  
+  .system-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xxl);
+  }
+  
+  .system-step {
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    position: relative;
+    transition: transform var(--transition-medium);
+    z-index: 1;
+  }
+  
+  .system-step:hover {
+    transform: translateY(-5px);
+  }
+  
+  .step-number {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  
+  .system-summary {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .system-summary p {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-lg);
+  }
+  
+  @media (max-width: 768px) {
+    .system-steps {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

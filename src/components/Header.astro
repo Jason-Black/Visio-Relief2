@@ -1,0 +1,155 @@
+---
+---
+
+<header class="site-header">
+  <div class="container">
+    <div class="logo">
+      <a href="/">Visio Relief</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#system">The System</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact" class="button">Book a Call</a></li>
+      </ul>
+    </nav>
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const menuToggle = document.querySelector('.mobile-menu-toggle');
+  const nav = document.querySelector('nav');
+  
+  if (menuToggle && nav) {
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+  }
+  
+  // Close mobile menu when clicking on links
+  const navLinks = document.querySelectorAll('nav a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
+      menuToggle?.classList.remove('active');
+    });
+  });
+</script>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1rem 0;
+    transition: background-color var(--transition-medium);
+    background-color: rgba(252, 252, 255, 0.95);
+    backdrop-filter: blur(8px);
+  }
+  
+  .site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo a {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: var(--space-md);
+    align-items: center;
+  }
+  
+  nav a {
+    color: var(--color-text);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+  }
+  
+  nav a:hover {
+    color: var(--color-primary);
+  }
+  
+  nav a.button {
+    color: var(--color-white);
+  }
+  
+  .mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 24px;
+    position: relative;
+    z-index: 101;
+  }
+  
+  .mobile-menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text);
+    margin: 5px 0;
+    transition: var(--transition-fast);
+  }
+  
+  @media (max-width: 768px) {
+    .mobile-menu-toggle {
+      display: block;
+    }
+    
+    nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 300px;
+      height: 100vh;
+      background-color: var(--color-white);
+      padding: 5rem var(--space-lg) var(--space-lg);
+      transition: right var(--transition-medium);
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    nav.active {
+      right: 0;
+    }
+    
+    nav ul {
+      flex-direction: column;
+      gap: var(--space-lg);
+      align-items: flex-start;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
+  }
+</style>

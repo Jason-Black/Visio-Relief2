@@ -1,0 +1,121 @@
+---
+const benefits = [
+  {
+    title: "Reduced Anxiety",
+    description: "Learn to observe thoughts without getting caught in anxiety spirals, resulting in a calmer and more peaceful mind.",
+    icon: "✨"
+  },
+  {
+    title: "Improved Sleep",
+    description: "Break the cycle of racing thoughts and develop a peaceful bedtime routine for deeper, more restorative sleep.",
+    icon: "💤"
+  },
+  {
+    title: "Better Decisions",
+    description: "Make choices from a place of clarity rather than fear or confusion, leading to better outcomes in all areas of life.",
+    icon: "🧠"
+  },
+  {
+    title: "Enhanced Relationships",
+    description: "Connect more authentically with others when you're no longer distracted by mental fog and self-doubt.",
+    icon: "💞"
+  },
+  {
+    title: "Increased Focus",
+    description: "Develop the ability to stay present and engaged, improving productivity and enjoyment of daily activities.",
+    icon: "🎯"
+  },
+  {
+    title: "Greater Resilience",
+    description: "Build emotional strength to navigate life's challenges with grace and bounce back from setbacks more quickly.",
+    icon: "🌱"
+  }
+];
+---
+
+<section id="benefits" class="benefits">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>What You'll Gain</h2>
+      <p class="section-intro">The Visio Relief system creates transformation in all areas of your life</p>
+    </div>
+    
+    <div class="benefits-grid">
+      {benefits.map(benefit => (
+        <div class="benefit-card">
+          <div class="benefit-icon">{benefit.icon}</div>
+          <h3>{benefit.title}</h3>
+          <p>{benefit.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .benefits {
+    background-color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .benefits::before {
+    content: "";
+    position: absolute;
+    left: -150px;
+    top: -150px;
+    width: 300px;
+    height: 300px;
+    background-image: radial-gradient(circle, var(--color-primary-light) 0%, transparent 70%);
+    opacity: 0.3;
+    z-index: 0;
+  }
+  
+  .section-intro {
+    max-width: 700px;
+    margin: 0 auto var(--space-xl);
+    color: var(--color-text-light);
+  }
+  
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .benefit-card {
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  }
+  
+  .benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+  }
+  
+  .benefit-card h3 {
+    margin-bottom: var(--space-sm);
+  }
+  
+  .benefit-card p {
+    color: var(--color-text-light);
+    margin-bottom: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,138 @@
+
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight, User } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+
+const testimonials = [
+  {
+    id: 1,
+    name: "Sarah M.",
+    role: "Marketing Executive",
+    quote: "Visio Relief transformed my approach to anxiety. The techniques I learned helped me reclaim my focus at work and find balance in my personal life.",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+  },
+  {
+    id: 2,
+    name: "Michael K.",
+    role: "Software Engineer",
+    quote: "After struggling with burnout for years, the Visio Relief coaching system helped me identify my emotional triggers and develop sustainable coping strategies.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+  },
+  {
+    id: 3,
+    name: "Emma R.",
+    role: "Healthcare Professional",
+    quote: "The clarity I gained through Visio Relief's approach was life-changing. I can now manage stressful situations with a calm mind and clear perspective.",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+  }
+];
+
+const Testimonials = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const nextTestimonial = () => {
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    }
+  };
+
+  const prevTestimonial = () => {
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+    }
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsAnimating(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [currentIndex]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextTestimonial();
+    }, 8000);
+
+    return () => clearInterval(interval);
+  }, [currentIndex, isAnimating]);
+
+  return (
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-6">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-16">What Our Clients Say</h2>
+
+        <div className="relative max-w-4xl mx-auto">
+          <div className="overflow-hidden min-h-[300px]">
+            <div className="flex transition-all duration-500" 
+                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+              {testimonials.map((testimonial) => (
+                <div key={testimonial.id} className="min-w-full px-4">
+                  <Card className="border-none shadow-lg bg-gradient-to-br from-white to-visiorelief-blue/10">
+                    <CardContent className="p-8 md:p-12">
+                      <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+                        <div className="w-20 h-20 md:w-24 md:h-24 flex-shrink-0">
+                          <img 
+                            src={testimonial.image} 
+                            alt={testimonial.name}
+                            className="w-full h-full object-cover rounded-full border-2 border-visiorelief-purple"
+                            onError={(e) => {
+                              e.currentTarget.src = "https://via.placeholder.com/150";
+                              e.currentTarget.onerror = null;
+                            }}
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-lg md:text-xl italic text-gray-700 mb-4">"{testimonial.quote}"</p>
+                          <div className="flex flex-col">
+                            <span className="font-semibold text-gray-800">{testimonial.name}</span>
+                            <span className="text-gray-500 text-sm">{testimonial.role}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <button 
+            onClick={prevTestimonial} 
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 md:-translate-x-10 bg-white rounded-full p-2 shadow-md hover:bg-visiorelief-grey transition-colors"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="h-6 w-6 text-visiorelief-purple" />
+          </button>
+
+          <button 
+            onClick={nextTestimonial} 
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 md:translate-x-10 bg-white rounded-full p-2 shadow-md hover:bg-visiorelief-grey transition-colors"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="h-6 w-6 text-visiorelief-purple" />
+          </button>
+
+          <div className="flex justify-center mt-8 gap-2">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full ${
+                  index === currentIndex ? "bg-visiorelief-purple" : "bg-visiorelief-grey"
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Testimonials2;

@@ -1,117 +1,172 @@
 ---
 const testimonials = [
   {
-    name: "Sarah L.",
-    position: "Marketing Director",
-    quote: "I was constantly overwhelmed by decisions and second-guessing myself. The Visio Relief system gave me practical tools to cut through the mental fog and reconnect with my own inner wisdom. Now I make decisions with confidence and clarity.",
-    image: "https://images.pexels.com/photos/2613260/pexels-photo-2613260.jpeg"
+    id: 1,
+    name: "Sarah M.",
+    role: "Marketing Executive",
+    quote: "Visio Relief transformed my approach to anxiety. The techniques I learned helped me reclaim my focus at work and find balance in my personal life.",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
   },
   {
-    name: "James T.",
-    position: "Software Engineer",
-    quote: "As someone who deals with anxiety, I was skeptical about yet another mindfulness approach. But Michael's system is different - it's practical, science-based, and immediately applicable. I've seen a dramatic reduction in my stress levels.",
-    image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg"
+    id: 2,
+    name: "Michael K.",
+    role: "Software Engineer",
+    quote: "After struggling with burnout for years, the Visio Relief coaching system helped me identify my emotional triggers and develop sustainable coping strategies.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
   },
   {
-    name: "Elena R.",
-    position: "Healthcare Professional",
-    quote: "Working in healthcare during the pandemic left me burnt out and disconnected from myself. The Visio Relief techniques helped me find mental clarity even in the most stressful situations. I've regained my passion for my work and my life.",
-    image: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg"
+    id: 3,
+    name: "Emma R.",
+    role: "Healthcare Professional",
+    quote: "The clarity I gained through Visio Relief's approach was life-changing. I can now manage stressful situations with a calm mind and clear perspective.",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
   }
 ];
 ---
 
-<section id="testimonials" class="testimonials">
-  <div class="container">
-    <h2 class="section-title text-center">Transformational Results</h2>
-    <p class="section-intro text-center">Real stories from people who found clarity through the Visio Relief system</p>
-    
-    <div class="testimonial-carousel">
-      {testimonials.map(testimonial => (
-        <div class="testimonial-card">
-          <div class="testimonial-content">
-            <blockquote>
-              "{testimonial.quote}"
-            </blockquote>
-            <div class="testimonial-author">
-              <img src={testimonial.image} alt={testimonial.name} loading="lazy" />
-              <div class="author-info">
-                <h4>{testimonial.name}</h4>
-                <p>{testimonial.position}</p>
+<section id="testimonials" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-16">What Our Clients Say</h2>
+
+    <div class="relative max-w-4xl mx-auto">
+      <div class="overflow-hidden">
+        <div class="carousel-container flex transition-all duration-500">
+          {testimonials.map((testimonial) => (
+            <div class="min-w-full px-4">
+              <div class="card bg-gradient-to-br from-white to-blue-50 p-8 md:p-12 rounded-lg shadow-lg">
+                <p class="text-lg md:text-xl italic text-gray-700 mb-6">"{testimonial.quote}"</p>
+                
+                <div class="flex items-center gap-4">
+                  <div class="w-16 h-16 flex-shrink-0">
+                    <img 
+                      src={testimonial.image} 
+                      alt={testimonial.name}
+                      class="w-full h-full object-cover rounded-full border-2 border-primary"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div>
+                    <div class="font-semibold text-gray-800">{testimonial.name}</div>
+                    <div class="text-gray-500 text-sm">{testimonial.role}</div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
-      ))}
-    </div>
-    
-    <div class="testimonial-nav">
-      <button class="prev" aria-label="Previous testimonial">&larr;</button>
-      <div class="indicators">
+      </div>
+
+      <button 
+        class="carousel-button prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 md:-translate-x-10 bg-white rounded-full p-2 shadow-md hover:bg-gray-100 transition-colors"
+        aria-label="Previous testimonial"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+
+      <button 
+        class="carousel-button next absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 md:translate-x-10 bg-white rounded-full p-2 shadow-md hover:bg-gray-100 transition-colors"
+        aria-label="Next testimonial"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+
+      <div class="carousel-indicators flex justify-center mt-8 gap-2">
         {testimonials.map((_, index) => (
-          <button class={`indicator ${index === 0 ? 'active' : ''}`} aria-label={`Go to testimonial ${index + 1}`}></button>
+          <button
+            class={`carousel-indicator w-3 h-3 rounded-full ${index === 0 ? "bg-primary" : "bg-gray-300"}`}
+            aria-label={`Go to testimonial ${index + 1}`}
+          />
         ))}
       </div>
-      <button class="next" aria-label="Next testimonial">&rarr;</button>
     </div>
   </div>
 </section>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const carousel = document.querySelector('.testimonial-carousel');
-    const cards = document.querySelectorAll('.testimonial-card');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    const indicators = document.querySelectorAll('.indicator');
+    const carouselContainer = document.querySelector('.carousel-container') as HTMLElement;
+    const items = document.querySelectorAll('.min-w-full');
+    const prevBtn = document.querySelector('.carousel-button.prev');
+    const nextBtn = document.querySelector('.carousel-button.next');
+    const indicators = document.querySelectorAll('.carousel-indicator');
     
     let currentIndex = 0;
+    let isAnimating = false;
+    const animationDuration = 500; // match the duration-500 class in the HTML
+    
+    // Initialize the carousel
+    if (carouselContainer) {
+      carouselContainer.style.transform = 'translateX(0)';
+    }
     
     function updateCarousel() {
+      if (!carouselContainer || isAnimating) return;
+      
+      isAnimating = true;
       const offset = currentIndex * -100;
-      carousel.style.transform = `translateX(${offset}%)`;
+      carouselContainer.style.transform = `translateX(${offset}%)`;
       
       // Update indicators
       indicators.forEach((indicator, index) => {
-        indicator.classList.toggle('active', index === currentIndex);
+        if (indicator instanceof HTMLElement) {
+          if (index === currentIndex) {
+            indicator.classList.remove('bg-gray-300');
+            indicator.classList.add('bg-primary');
+          } else {
+            indicator.classList.remove('bg-primary');
+            indicator.classList.add('bg-gray-300');
+          }
+        }
       });
+      
+      // Reset animation flag after transition
+      setTimeout(() => {
+        isAnimating = false;
+      }, animationDuration);
     }
     
-    function goToSlide(index) {
-      currentIndex = index;
+    function goToSlide(index: number) {
+      if (index < 0) {
+        currentIndex = items.length - 1;
+      } else if (index >= items.length) {
+        currentIndex = 0;
+      } else {
+        currentIndex = index;
+      }
       updateCarousel();
     }
     
+    // Add click event listeners for navigation
     if (prevBtn) {
       prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex > 0) ? currentIndex - 1 : cards.length - 1;
-        updateCarousel();
+        goToSlide(currentIndex - 1);
       });
     }
     
     if (nextBtn) {
       nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex < cards.length - 1) ? currentIndex + 1 : 0;
-        updateCarousel();
+        goToSlide(currentIndex + 1);
       });
     }
     
-    indicators.forEach((indicator, index) => {
+    // Add click event listeners for indicators
+    indicators.forEach((indicator, idx) => {
       indicator.addEventListener('click', () => {
-        goToSlide(index);
+        goToSlide(idx);
       });
     });
     
     // Touch events for mobile swiping
     let touchStartX = 0;
     let touchEndX = 0;
+    const carouselViewport = document.querySelector('.overflow-hidden');
     
-    if (carousel) {
-      carousel.addEventListener('touchstart', (e) => {
+    if (carouselViewport) {
+      carouselViewport.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
       }, { passive: true });
       
-      carousel.addEventListener('touchend', (e) => {
+      carouselViewport.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
         handleSwipe();
       }, { passive: true });
@@ -121,163 +176,64 @@ const testimonials = [
       const swipeThreshold = 50;
       if (touchEndX < touchStartX - swipeThreshold) {
         // Swipe left, go to next
-        currentIndex = (currentIndex < cards.length - 1) ? currentIndex + 1 : 0;
-        updateCarousel();
+        goToSlide(currentIndex + 1);
       }
       
       if (touchEndX > touchStartX + swipeThreshold) {
         // Swipe right, go to previous
-        currentIndex = (currentIndex > 0) ? currentIndex - 1 : cards.length - 1;
-        updateCarousel();
+        goToSlide(currentIndex - 1);
       }
+    }
+    
+    // Auto-advance carousel
+    let autoplayInterval: number | undefined;
+    
+    function startAutoplay() {
+      autoplayInterval = window.setInterval(() => {
+        goToSlide(currentIndex + 1);
+      }, 8000); // Change slide every 8 seconds, matching Testimonials2
+    }
+    
+    function stopAutoplay() {
+      if (autoplayInterval) {
+        window.clearInterval(autoplayInterval);
+      }
+    }
+    
+    // Enable autoplay
+    startAutoplay();
+    
+    // Pause autoplay on hover/touch
+    const carousel = document.querySelector('.relative');
+    if (carousel) {
+      carousel.addEventListener('mouseenter', stopAutoplay);
+      carousel.addEventListener('mouseleave', startAutoplay);
+      carousel.addEventListener('touchstart', stopAutoplay, { passive: true });
+      carousel.addEventListener('touchend', startAutoplay, { passive: true });
     }
   });
 </script>
 
 <style>
-  .testimonials {
-    background-color: var(--color-background);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .testimonials::before {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 300px;
-    height: 300px;
-    background-image: radial-gradient(circle, var(--color-accent-light) 0%, transparent 70%);
-    opacity: 0.5;
-    z-index: 0;
-  }
-  
-  .section-intro {
-    max-width: 700px;
-    margin: 0 auto var(--space-xl);
-    color: var(--color-text-light);
-  }
-  
-  .testimonial-carousel {
-    display: flex;
-    transition: transform var(--transition-medium);
-    width: 100%;
-    margin-bottom: var(--space-lg);
-  }
-  
-  .testimonial-card {
-    flex: 0 0 100%;
-    padding: 0 var(--space-md);
-  }
-  
-  .testimonial-content {
-    background-color: var(--color-white);
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
-    position: relative;
-  }
-  
-  .testimonial-content::before {
-    content: """;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 5rem;
-    color: var(--color-primary-light);
-    opacity: 0.2;
-    font-family: 'Playfair Display', serif;
-    line-height: 0;
-  }
-  
-  blockquote {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: var(--space-lg);
-    position: relative;
-    z-index: 1;
-  }
-  
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-  }
-  
-  .testimonial-author img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-right: var(--space-md);
-    object-fit: cover;
-  }
-  
-  .author-info h4 {
-    margin-bottom: 0;
-  }
-  
-  .author-info p {
-    color: var(--color-text-light);
-    margin-bottom: 0;
-    font-size: 0.9rem;
-  }
-  
-  .testimonial-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-lg);
-  }
-  
-  .testimonial-nav button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: var(--color-primary);
-    transition: all var(--transition-fast);
-  }
-  
-  .testimonial-nav button:hover {
-    color: var(--color-primary-dark);
-    transform: scale(1.1);
-  }
-  
-  .indicators {
-    display: flex;
-    gap: var(--space-sm);
-  }
-  
-  .indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: var(--color-primary-light);
-    opacity: 0.3;
-    transition: all var(--transition-fast);
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-  
-  .indicator.active {
-    opacity: 1;
+  /* Add custom CSS for elements that might need additional styling */
+  .bg-primary {
     background-color: var(--color-primary);
-    transform: scale(1.2);
   }
   
-  @media (max-width: 768px) {
-    .testimonial-content {
-      padding: var(--space-lg);
-    }
-    
-    blockquote {
-      font-size: 1rem;
-    }
-    
-    .testimonial-author img {
-      width: 50px;
-      height: 50px;
-    }
+  .border-primary {
+    border-color: var(--color-primary);
+  }
+  
+  .text-primary {
+    color: var(--color-primary);
+  }
+  
+  .bg-gradient-to-br.from-white.to-blue-50 {
+    background: linear-gradient(to bottom right, white, #eff6ff);
+  }
+  
+  /* Ensure proper transitions */
+  .carousel-container {
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   }
 </style>
